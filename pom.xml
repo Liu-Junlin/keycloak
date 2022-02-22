@@ -275,6 +275,7 @@
         <module>adapters</module>
         <module>authz</module>
         <module>misc</module>
+        <module>tdua</module>
     </modules>
 
     <dependencyManagement>

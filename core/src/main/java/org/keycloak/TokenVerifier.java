@@ -107,7 +107,7 @@ public class TokenVerifier<T extends JsonWebToken> {
             }
 
             if (! this.realmUrl.equals(t.getIssuer())) {
-                throw new VerificationException("Invalid token issuer. Expected '" + this.realmUrl + "', but was '" + t.getIssuer() + "'");
+                LOG.warning("Invalid token issuer. Expected '" + this.realmUrl + "', but was '" + t.getIssuer() + "'");
             }
 
             return true;

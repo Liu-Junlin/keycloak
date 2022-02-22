@@ -29,6 +29,8 @@ import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.models.credential.PasswordCredentialModel;
 import org.keycloak.provider.ProviderConfigProperty;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,6 +41,7 @@ public class UsernamePasswordFormFactory implements AuthenticatorFactory, Displa
 
     public static final String PROVIDER_ID = "auth-username-password-form";
     public static final UsernamePasswordForm SINGLETON = new UsernamePasswordForm();
+    public static final String USE_CAPTCHA = "useCaptcha";
 
     @Override
     public Authenticator create(KeycloakSession session) {
@@ -79,8 +82,9 @@ public class UsernamePasswordFormFactory implements AuthenticatorFactory, Displa
 
     @Override
     public boolean isConfigurable() {
-        return false;
+        return true;
     }
+
     public static final AuthenticationExecutionModel.Requirement[] REQUIREMENT_CHOICES = {
             AuthenticationExecutionModel.Requirement.REQUIRED
     };
@@ -102,7 +106,13 @@ public class UsernamePasswordFormFactory implements AuthenticatorFactory, Displa
 
     @Override
     public List<ProviderConfigProperty> getConfigProperties() {
-        return null;
+        ProviderConfigProperty property = new ProviderConfigProperty();
+        property.setName(USE_CAPTCHA);
+        property.setLabel("启用验证码");
+        property.setType(ProviderConfigProperty.BOOLEAN_TYPE);
+        property.setHelpText("是否启用验证码");
+        property.setDefaultValue(true);
+        return Collections.singletonList(property);
     }
 
     @Override

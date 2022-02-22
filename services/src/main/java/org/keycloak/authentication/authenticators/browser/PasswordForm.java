@@ -32,6 +32,7 @@ import javax.ws.rs.core.Response;
 
 public class PasswordForm extends UsernamePasswordForm implements CredentialValidator<PasswordCredentialProvider> {
 
+    @Override
     protected boolean validateForm(AuthenticationFlowContext context, MultivaluedMap<String, String> formData) {
         return validatePassword(context, context.getUser(), formData, false);
     }

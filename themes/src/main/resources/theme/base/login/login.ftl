@@ -6,7 +6,7 @@
     <div id="kc-form">
       <div id="kc-form-wrapper">
         <#if realm.password>
-            <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+            <form id="kc-form-login" onsubmit="login.disabled = true;passwordEncrypt.encrypt();return true;" action="${url.loginAction}" method="post">
                 <#if !usernameHidden??>
                     <div class="${properties.kcFormGroupClass!}">
                         <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
@@ -38,6 +38,14 @@
                     </#if>
 
                 </div>
+
+                <#if useCaptcha??>
+                    <div class="${properties.kcFormGroupClass!}">
+                        <label for="captcha" class="${properties.kcLabelClass!}">验证码</label>
+                        <input tabindex="3" id="captcha" placeholder="${msg("inputCaptcha")}" required="required" style="width: 150px" class="${properties.kcInputClass!}" name="captcha" type="text" autocomplete="off">
+                        <img src="${url.resourcesPath}/../../../../realms/${realm.name}/captcha" title="${msg("clickToRefreshCaptcha")}" alt="${msg("clickToRefreshCaptcha")}" width="200" height="50" onclick="this.src='${url.resourcesPath}/../../../../realms/${realm.name}/captcha?t='+Math.random()">
+                    </div>
+                </#if>
 
                 <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
                     <div id="kc-form-options">
