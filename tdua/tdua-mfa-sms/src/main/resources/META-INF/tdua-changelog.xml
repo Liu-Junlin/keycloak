@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="liujunlin@outlook.com" id="email-message-h2-1.0" dbms="h2">
+        <createTable tableName="EMAIL_MESSAGE">
+            <column name="ID" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REALM_ID" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RECEIVER_USER_ID" type="VARCHAR(36)"/>
+            <column name="SEND_TIME" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_RESULT" type="VARCHAR(1000)"/>
+            <column name="SEND_CONTENT" type="VARCHAR(2000)"/>
+            <column name="USE_TIME" type="INT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_TYPE" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUCCESS" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey constraintName="PK_EMAIL_MESSAGE" tableName="EMAIL_MESSAGE" columnNames="ID"/>
+        <createIndex tableName="EMAIL_MESSAGE" indexName="IDX_EMAIL_MESSAGE_01">
+            <column name="EMAIL"/>
+        </createIndex>
+        <createIndex tableName="EMAIL_MESSAGE" indexName="IDX_EMAIL_MESSAGE_02" unique="true">
+            <column name="SEND_TIME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="liujunlin@outlook.com" id="sms-message-h2-1.0" dbms="h2">
+        <createTable tableName="TDUA_SMS_MESSAGE">
+            <column name="ID" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REALM_ID" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE_NUMBER" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RECEIVER_USER_ID" type="VARCHAR(36)"/>
+            <column name="SEND_TIME" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_RESULT" type="VARCHAR(1000)"/>
+            <column name="SEND_CONTENT" type="VARCHAR(2000)"/>
+            <column name="USE_TIME" type="INT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_TYPE" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUCCESS" type="BOOL" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey constraintName="PK_TDUA_SMS_MESSAGE" tableName="TDUA_SMS_MESSAGE" columnNames="ID"/>
+        <createIndex tableName="TDUA_SMS_MESSAGE" indexName="IDX_TDUA_SMS_MESSAGE_01">
+            <column name="PHONE_NUMBER"/>
+        </createIndex>
+        <createIndex tableName="TDUA_SMS_MESSAGE" indexName="IDX_TDUA_SMS_MESSAGE_02" unique="true">
+            <column name="SEND_TIME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="liujunlin@outlook.com" id="email-message-postgresql-1.0" dbms="postgresql">
+        <createTable tableName="TDUA_EMAIL_MESSAGE">
+            <column name="ID" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REALM_ID" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RECEIVER_USER_ID" type="VARCHAR(36)"/>
+            <column name="SEND_TIME" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_RESULT" type="TEXT"/>
+            <column name="SEND_CONTENT" type="TEXT"/>
+            <column name="USE_TIME" type="INT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_TYPE" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUCCESS" type="BOOL" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey constraintName="PK_TDUA_EMAIL_MESSAGE" tableName="TDUA_EMAIL_MESSAGE" columnNames="ID"/>
+        <createIndex tableName="TDUA_EMAIL_MESSAGE" indexName="IDX_TDUA_EMAIL_MESSAGE_01">
+            <column name="EMAIL"/>
+        </createIndex>
+        <createIndex tableName="TDUA_EMAIL_MESSAGE" indexName="IDX_TDUA_EMAIL_MESSAGE_02" unique="true">
+            <column name="SEND_TIME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="liujunlin@outlook.com" id="sms-message-postgresql-1.0" dbms="postgresql">
+        <createTable tableName="TDUA_SMS_MESSAGE">
+            <column name="ID" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REALM_ID" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE_NUMBER" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RECEIVER_USER_ID" type="VARCHAR(36)"/>
+            <column name="SEND_TIME" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEND_RESULT" type="TEXT"/>
+            <column name="SEND_CONTENT" type="TEXT"/>
+            <column name="USE_TIME" type="INT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_TYPE" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUCCESS" type="BOOL" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey constraintName="PK_TDUA_SMS_MESSAGE" tableName="TDUA_SMS_MESSAGE" columnNames="ID"/>
+        <createIndex tableName="TDUA_SMS_MESSAGE" indexName="IDX_TDUA_SMS_MESSAGE_01">
+            <column name="PHONE_NUMBER"/>
+        </createIndex>
+        <createIndex tableName="TDUA_SMS_MESSAGE" indexName="IDX_TDUA_SMS_MESSAGE_02" unique="true">
+            <column name="SEND_TIME"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

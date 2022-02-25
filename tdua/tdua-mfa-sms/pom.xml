@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>cn.tdsj.keycloak</groupId>
+        <artifactId>tdua</artifactId>
+        <version>18.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <name>TDUA Keycloak Mfa Sms</name>
+    <artifactId>tdua-mfa-sms</artifactId>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-model-jpa</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.tdsj.dspt</groupId>
+            <artifactId>dspt-external-ums-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.tdsj.keycloak</groupId>
+            <artifactId>tdua-util</artifactId>
+        </dependency>
+    </dependencies>
+</project>
