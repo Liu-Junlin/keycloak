@@ -30,7 +30,36 @@
     <groupId>cn.tdsj.keycloak</groupId>
     <name>Tdua Keycloak</name>
     <packaging>pom</packaging>
+
+    <properties>
+        <dspt.version>1.2.2</dspt.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
+    </properties>
     <modules>
+        <module>tdua-mfa-sms</module>
         <module>tdua-provider-captcha</module>
+        <module>tdua-util</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.tdsj.dspt</groupId>
+                <artifactId>dspt-external-ums-common</artifactId>
+                <version>${dspt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.tdsj.keycloak</groupId>
+                <artifactId>tdua-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
+    </build>
 </project>

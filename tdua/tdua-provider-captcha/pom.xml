@@ -24,7 +24,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <name>TDUA Keycloak Provider Captcha</name>
-    <artifactId>tdua-keycloak-provider-captcha</artifactId>
+    <artifactId>tdua-provider-captcha</artifactId>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -42,7 +42,6 @@
         <dependency>
             <groupId>com.github.penggle</groupId>
             <artifactId>kaptcha</artifactId>
-            <version>2.3.2</version>
         </dependency>
     </dependencies>
 </project>
