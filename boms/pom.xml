@@ -48,7 +48,18 @@
         <module>spi</module>
         <module>misc</module>
     </modules>
-    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-tdsj</id>
+            <name>tdsj Snapshot</name>
+            <url>https://nexus.elanbase.com/repository/tdsj-snapshot/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-tdsj</id>
+            <name>tdsj releases</name>
+            <url>https://nexus.elanbase.com/repository/tdsj-release/</url>
+        </repository>
+    </distributionManagement>
     <build>
         <pluginManagement>
             <plugins>

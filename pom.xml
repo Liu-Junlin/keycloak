@@ -234,10 +234,15 @@
     </scm>
 
     <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-tdsj</id>
+            <name>tdsj Snapshot</name>
+            <url>https://nexus.elanbase.com/repository/tdsj-snapshot/</url>
+        </snapshotRepository>
         <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+            <id>nexus-tdsj</id>
+            <name>tdsj releases</name>
+            <url>https://nexus.elanbase.com/repository/tdsj-release/</url>
         </repository>
     </distributionManagement>
 
