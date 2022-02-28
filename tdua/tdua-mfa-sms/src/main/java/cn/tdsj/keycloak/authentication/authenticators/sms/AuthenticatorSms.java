@@ -40,7 +40,6 @@ import org.keycloak.events.EventType;
 import org.keycloak.models.*;
 import org.keycloak.models.utils.KeycloakModelUtils;
 import org.keycloak.provider.ProviderConfigProperty;
-import org.keycloak.services.messages.Messages;
 import org.keycloak.sessions.AuthenticationSessionModel;
 
 import javax.persistence.EntityManager;
@@ -58,13 +57,15 @@ import java.util.concurrent.TimeUnit;
  * @version $Revision: 1 $
  */
 public class AuthenticatorSms implements Authenticator, AuthenticatorFactory {
+    private static final Logger logger = Logger.getLogger(AuthenticatorSms.class);
+    private static final String PROVIDER_ID = "tdua-mfa-sms";
+
     public static final String ATTEMPTED_PHONENUMBER = "phoneNumber";
     private static final String USER_PHONE_ATTR = "USER_PHONE_ATTR";
 
-    private static final Logger logger = Logger.getLogger(AuthenticatorSms.class);
-    private static final String PROVIDER_ID = "authenticator-sms-tdua";
     private static final String SEND_SMS_CODE = "SEND_SMS_CODE";
     private static final String SMS_SEND_RATE_TEN_MINUTES = "SMS_SEND_RATE_TEN_MINUTES";
+
     private static final String UMS_SERVER_URL = "UMS_SERVER_URL";
     private static final String UMS_SP_CODE = "UMS_SP_CODE";
     private static final String UMS_LOGIN_NAME = "UMS_LOGIN_NAME";

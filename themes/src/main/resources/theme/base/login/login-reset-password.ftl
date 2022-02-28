@@ -29,11 +29,11 @@
                 </div>
             </div>
         </form>
-    <#elseif section = "info" >
-        <#if realm.duplicateEmailsAllowed>
-            ${msg("emailInstructionUsername")}
-        <#else>
-            ${msg("emailInstruction")}
-        </#if>
+<#--    <#elseif section = "info" >-->
+<#--        <#if realm.duplicateEmailsAllowed>-->
+<#--            ${msg("emailInstructionUsername")}-->
+<#--        <#else>-->
+<#--            ${msg("emailInstruction")}-->
+<#--        </#if>-->
     </#if>
 </@layout.registrationLayout>

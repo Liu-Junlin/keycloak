@@ -38,6 +38,7 @@
     <modules>
         <module>tdua-mfa-sms</module>
         <module>tdua-provider-captcha</module>
+        <module>tdua-resetcred</module>
         <module>tdua-util</module>
     </modules>
     <dependencyManagement>

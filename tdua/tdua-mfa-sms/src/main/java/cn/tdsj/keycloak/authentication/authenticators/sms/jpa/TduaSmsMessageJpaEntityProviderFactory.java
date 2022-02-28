@@ -29,7 +29,7 @@ import org.keycloak.models.KeycloakSessionFactory;
  */
 public class TduaSmsMessageJpaEntityProviderFactory implements JpaEntityProviderFactory {
 
-    protected static final String ID = "tdua-auth-sms-entity-provider";
+    protected static final String ID = "tdua-sms-entity-provider";
 
     @Override
     public JpaEntityProvider create(KeycloakSession session) {
