@@ -29,7 +29,7 @@ public class KeycloakSpringBootConfigResolver implements org.keycloak.adapters.K
 
     private KeycloakDeployment keycloakDeployment;
 
-    @Autowired(required=false)
+    @Autowired(required = false)
     private AdapterConfig adapterConfig;
 
     @Override
@@ -43,7 +43,7 @@ public class KeycloakSpringBootConfigResolver implements org.keycloak.adapters.K
         return keycloakDeployment;
     }
 
-    void setAdapterConfig(AdapterConfig adapterConfig) {
+    protected void setAdapterConfig(AdapterConfig adapterConfig) {
         this.adapterConfig = adapterConfig;
     }
 }
